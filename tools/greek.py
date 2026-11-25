@@ -290,7 +290,7 @@ def wiki_thumbs(titles):
         chunk = titles[i:i + 50]
         url = "https://en.wikipedia.org/w/api.php?" + urllib.parse.urlencode({
             "action": "query", "format": "json", "redirects": 1, "titles": "|".join(chunk),
-            "prop": "pageimages", "piprop": "thumbnail", "pithumbsize": 640})
+            "prop": "pageimages", "piprop": "thumbnail", "pithumbsize": 1280})
         data = json.loads(fetch(url)[0])["query"]
         back = {t: t for t in chunk}
         for step in ("normalized", "redirects"):

@@ -14,6 +14,8 @@ Live at https://manjafirehorse.github.io/griechisch/ (repo ManjaFirehorse/griech
 - `words.js`: **generated**, never edit. `python tools/greek.py build` after changing words or pictures.
 - `tools/greek.py`: inbox, exists, apply, build, check, stats (see its docstring). It uses git's stored GitHub sign-in to close issues.
 - Her progress (flashcard boxes, due dates) lives in her browser's localStorage only.
+- Pronunciation ("So spricht man es") is made in `app.js` from the Greek (`translit`), German-friendly, nothing to store. The "Anhören" buttons use the device's Greek voice and stay hidden if it has none.
+- `style.css` and the scripts load with `?v=<time>`, so changes show at once.
 
 ## Adding words
 
