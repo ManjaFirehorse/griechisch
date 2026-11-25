@@ -1,11 +1,10 @@
 // The Greek word book website. Data comes from words.js (built by tools/greek.py)
-// and, live, from her Google Sheet (words she added that are not built yet).
+// and, live, from her open "Neues Wort" form entries on GitHub (words not built yet).
 (function () {
   "use strict";
 
   var CFG = window.CONFIG || {};
   var WORDS = window.WORDS || [];
-  var MARKS = window.SHEET_MARKS || {};
   var byId = {};
   WORDS.forEach(function (w) { byId[w.id] = w; });
   var boards = WORDS.filter(function (w) { return w.full; });
@@ -16,7 +15,8 @@
   var STORE = "griechisch-fortschritt-v1";
 
   var app = document.getElementById("app");
-  var pending = [];   // rows in her sheet that are not in the book yet
+  var pending = [];   // words from her open form entries, not in the book yet
+  var NEW_WORD_URL = CFG.github_repo ? "https://github.com/" + CFG.github_repo + "/issues/new?template=neues-wort.yml" : "";
   var session = null; // the running flashcard round
 
   // ---------- helpers ----------
@@ -30,7 +30,6 @@
   function plain(s) {
     return String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/ς/g, "σ").trim();
   }
-  function inputKey(s) { return String(s || "").trim().toLowerCase().replace(/\s+/g, " "); }
   function day(offset) {
     var d = new Date();
     d.setDate(d.getDate() + (offset || 0));
@@ -81,45 +80,24 @@
       .slice(0, left);
   }
 
-  // ---------- her sheet (live) ----------
-  function parseCSV(text) {
-    var rows = [], row = [], cell = "", q = false;
-    for (var i = 0; i < text.length; i++) {
-      var c = text[i];
-      if (q) {
-        if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; }
-        else if (c === '"') q = false;
-        else cell += c;
-      } else if (c === '"') q = true;
-      else if (c === ",") { row.push(cell); cell = ""; }
-      else if (c === "\n" || c === "\r") {
-        if (c === "\r" && text[i + 1] === "\n") i++;
-        row.push(cell); rows.push(row); row = []; cell = "";
-      } else cell += c;
-    }
-    if (cell || row.length) { row.push(cell); rows.push(row); }
-    return rows;
+  // ---------- her form entries (live, open GitHub issues) ----------
+  function formWord(body) {
+    var m = /###\s*Griechisches Wort\s*\n+([\s\S]*?)(?=\n###\s|$)/.exec(body || "");
+    var s = m ? m[1].trim() : "";
+    return s === "_No response_" ? "" : s;
   }
-  function loadSheet() {
-    if (!CFG.sheet_csv_url) return;
-    var handled = {};
-    WORDS.forEach(function (w) { (w.sheet_inputs || []).forEach(function (s) { handled[inputKey(s)] = true; }); });
-    Object.keys(MARKS).forEach(function (s) { handled[inputKey(s)] = true; });
-    fetch(CFG.sheet_csv_url, { cache: "no-store" })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
-      .then(function (text) {
-        var seen = {};
-        pending = parseCSV(text).slice(1).map(function (r) { return (r[0] || "").trim(); })
-          .filter(function (s) {
-            var k = inputKey(s);
-            if (!s || handled[k] || seen[k]) return false;
-            seen[k] = true;
-            return true;
-          });
+  function loadEntries() {
+    if (!CFG.github_repo) return;
+    fetch("https://api.github.com/repos/" + CFG.github_repo + "/issues?state=open&per_page=100", { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (issues) {
+        pending = issues.filter(function (i) { return !i.pull_request; })
+          .map(function (i) { return formWord(i.body); })
+          .filter(Boolean);
         var view = route().view;
         if (view === "start" || view === "woerter") render();
       })
-      .catch(function () { /* offline or not published: just show the built words */ });
+      .catch(function () { /* offline or GitHub busy: just show the built words */ });
   }
 
   // ---------- pages ----------
@@ -138,8 +116,8 @@
     var known = boards.filter(function (w) { return stateOf(w) === "ok"; }).length;
 
     var html = '<div class="start-head"><div><div class="date">' + esc(date) + '</div><h1>' + hello + "</h1></div>";
-    if (CFG.sheet_edit_url) {
-      html += '<a class="btn-outline" href="' + esc(CFG.sheet_edit_url) + '" target="_blank" rel="noopener">+ Neues Wort eintragen</a>';
+    if (NEW_WORD_URL) {
+      html += '<a class="btn-outline" href="' + esc(NEW_WORD_URL) + '" target="_blank" rel="noopener">+ Neues Wort eintragen</a>';
     }
     html += '</div><div class="start-grid"><section class="today"><div class="label">Heute wiederholen</div>';
     if (due) {
@@ -148,7 +126,7 @@
         '<div class="spacer"></div><a class="btn-sun" href="#/karten">Los geht\'s</a>';
     } else {
       html += '<div class="big"><b>0</b><span>Karten</span></div><p>' +
-        (boards.length ? "Für heute ist alles wiederholt. Μπράβο!" : "Noch keine Wörter. Trag dein erstes Wort im Sheet ein.") +
+        (boards.length ? "Für heute ist alles wiederholt. Μπράβο!" : "Noch keine Wörter. Trag dein erstes Wort ein.") +
         '</p><div class="spacer"></div>';
     }
     html += '</section><section class="col">';
@@ -184,7 +162,7 @@
     if (!w.full) {
       return '<div class="board"><a class="back" href="javascript:history.back()">‹ Zurück</a><div class="headword"><h1>' +
         art(w) + esc(w.greek) + '</h1><div class="de">' + esc(w.german) +
-        '</div><p class="note">Für dieses Wort gibt es noch keine Wortkarte. Trag es ins Sheet ein, dann kommt sie beim nächsten Update.</p></div></div>';
+        '</div><p class="note">Für dieses Wort gibt es noch keine Wortkarte. Trag es als neues Wort ein, dann kommt sie beim nächsten Update.</p></div></div>';
     }
     var html = '<div class="board"><a class="back" href="javascript:history.back()">‹ Zurück</a>';
     if (w.parts && w.parts.length) {
@@ -399,5 +377,5 @@
     document.title = CFG.title;
   }
   render();
-  loadSheet();
+  loadEntries();
 })();

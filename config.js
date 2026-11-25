@@ -1,6 +1,6 @@
-// Settings for the website. Fill these in once (see SETUP.md). Keep the JSON format: "key": "value".
+// Settings for the website. Keep the JSON format: "key": "value". The Python tool reads this too.
 window.CONFIG = {
   "title": "Meine griechischen Wörter",
-  "sheet_csv_url": "",
-  "sheet_edit_url": ""
+  "github_repo": "ManjaFirehorse/griechisch",
+  "site_url": "https://manjafirehorse.github.io/griechisch"
 };

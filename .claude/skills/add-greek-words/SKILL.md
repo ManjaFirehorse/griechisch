@@ -1,6 +1,6 @@
 ---
 name: add-greek-words
-description: Add the new words from the friend's Google Sheet to the Greek word book. Reads the sheet, builds a word board for each new word (German meaning, breakdown, 3 synonyms, 3 sentences, picture), saves everything in ONE batch, rebuilds the site files and pushes to GitHub. Use when the user says /add-greek-words, "add her words", "update the Greek book", or "add <Greek word>".
+description: Add the new words the friend entered with the "Neues Wort" form (GitHub issues) to the Greek word book. Reads her open entries, builds a word board for each new word (German meaning, breakdown, 3 synonyms, 3 sentences, picture), saves everything in ONE batch, rebuilds the site files and pushes to GitHub. Use when the user says /add-greek-words, "add her words", "update the Greek book", or "add <Greek word>".
 ---
 
 # Add words to the Greek word book
@@ -11,22 +11,22 @@ Run every command from the project root (`Documents\Greek Vocab Building`).
 
 ## 1. Collect the words
 
-`python tools/greek.py inbox` prints the sheet rows that are not handled yet: `word` (what she typed), `hint` (German, optional), `picture_link` (optional), `in_book`.
+`python tools/greek.py inbox` prints her open form entries: `issue` (its number), `word` (what she typed), `hint` (German, optional), `picture_link` (optional; her own photo or link), `in_book`.
 
-If the user named words (`/add-greek-words θάλασσα`), use those instead (no `sheet_input` then).
+If the user named words (`/add-greek-words θάλασσα`), use those instead (no `issue` then).
 If the list is empty, say there's nothing new and stop.
 
-## 2. Decide each row
+## 2. Decide each entry
 
 | `in_book` | What to do |
 |---|---|
-| `no` | Full board, `"source": "sie"`, `"sheet_input"` = her text exactly, plus the related boards (below) |
+| `no` | Full board, `"source": "sie"`, `"issue"` = its number, plus the related boards (below) |
 | `stub only` | Same as `no` (the stub gets replaced) |
-| `board, built as a related word` | An update `{"greek", "source": "sie", "sheet_input"}` |
-| `board, added by her` | An update `{"greek", "sheet_input"}` (she typed it twice) |
-| Not a real Greek word, can't tell what she meant | A mark `{"input": <her text>, "status": "Rechtschreibung prüfen"}` |
+| `board, built as a related word` | An update `{"greek", "source": "sie", "issue"}` |
+| `board, added by her` | An update `{"greek", "issue"}` (she entered it twice) |
+| Not a real Greek word, can't tell what she meant | A mark `{"issue", "status": "Rechtschreibung prüfen"}` |
 
-She may type in Latin letters (`kalimera`), with typos, with or without an article or accents: work out the real word. Use her `hint` to pick the meaning she wants. A cell with several words (`ψωμί, τυρί`) means separate boards; give each one the same `sheet_input`.
+She may type in Latin letters (`kalimera`), with typos, with or without an article or accents: work out the real word. Use her `hint` to pick the meaning she wants. An entry with several words (`ψωμί, τυρί`) means separate boards; give each one the same `issue`. `apply` closes every entry named in the batch with a short German comment linking to the new boards, so she sees it is done.
 
 If she gave a `picture_link`, the picture is `{"url": <link>, "emoji": ...}`.
 
@@ -50,10 +50,10 @@ If she gave a `picture_link`, the picture is `{"url": <link>, "emoji": ...}`.
    "sentences": [{"el": "**Καλημέρα!** Τι κάνεις;", "de": "**Guten Morgen!** Wie geht's dir?"}, {...}, {...}],
    "memory_tip": {"kind": "gleiche Wurzel", "text": "καλός steckt im **Kaleidoskop** ..."},
    "picture": {"wiki": "Sunrise", "emoji": "🌅"},
-   "source": "sie", "sheet_input": "kalimera"}
+   "source": "sie", "issue": 3}
  ],
- "updates": [{"greek": "σπίτι", "source": "sie", "sheet_input": "spiti"}],
- "marks": [{"input": "xqwz", "status": "Rechtschreibung prüfen"}]}
+ "updates": [{"greek": "σπίτι", "source": "sie", "issue": 4}],
+ "marks": [{"issue": 5, "status": "Rechtschreibung prüfen"}]}
 ```
 
 Rules for every full board (`apply` rejects boards that break the counted ones):
@@ -68,10 +68,10 @@ Rules for every full board (`apply` rejects boards that break the counted ones):
 
 ## 4. Apply
 
-`python tools/greek.py apply tools/batch.json`. It writes the word files and stubs, downloads pictures, and rebuilds `words.js` and `status.csv`. If it prints errors, fix `tools/batch.json` and run it again (the batch is only deleted after a clean build).
+`python tools/greek.py apply tools/batch.json`. It writes the word files and stubs, downloads pictures, rebuilds `words.js`, then closes her form entries. If it prints errors, fix `tools/batch.json` and run it again (the batch is only deleted, and entries only closed, after a clean build).
 
 ## 5. Publish
 
-`git add -A`, `git commit -m "Neue Wörter: <the Greek words>"`, `git push`. If there is no remote yet, say so and point to SETUP.md.
+`git add -A`, `git commit -m "Neue Wörter: <the Greek words>"`, `git push`. If the push asks for a sign-in, see SETUP.md ("If git asks to sign in").
 
-Then tell the user in a few lines: the boards added (hers vs related), any picture that fell back to an emoji, and any "Rechtschreibung prüfen" rows. The site updates about a minute after the push; her sheet's Status column follows within an hour.
+Then tell the user in a few lines: the boards added (hers vs related), any picture that fell back to an emoji, and any "Rechtschreibung prüfen" entries. The site updates about a minute after the push.

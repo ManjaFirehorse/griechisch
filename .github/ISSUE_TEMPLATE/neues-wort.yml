@@ -1,0 +1,25 @@
+name: Neues Wort
+description: Ein griechisches Wort für dein Wörterbuch eintragen
+title: "Neues Wort"
+body:
+  - type: markdown
+    attributes:
+      value: Nur das Wort ist Pflicht. Danach unten auf **Create** klicken, fertig. Einmal pro Woche wird daraus eine Wortkarte mit Bild, Sätzen und Synonymen.
+  - type: input
+    id: wort
+    attributes:
+      label: Griechisches Wort
+      description: Griechische oder lateinische Buchstaben (kalimera), beides geht. Mehrere Wörter mit Komma trennen.
+      placeholder: καλημέρα
+    validations:
+      required: true
+  - type: input
+    id: hinweis
+    attributes:
+      label: Hinweis (optional)
+      description: Auf Deutsch, z. B. welche Bedeutung du meinst.
+  - type: textarea
+    id: bild
+    attributes:
+      label: Bild (optional)
+      description: Ein Foto hier hineinziehen oder einen Bild-Link einfügen. Ohne Bild wird eins ausgesucht.

@@ -147,10 +147,7 @@ window.WORDS = [
   "source": "sie",
   "added": "2026-10-26",
   "emoji": "🌅",
-  "picture": "pictures/kalimera.jpg",
-  "sheet_inputs": [
-   "καλημέρα"
-  ]
+  "picture": "pictures/kalimera.jpg"
  },
  {
   "id": "kalinychta",
@@ -366,4 +363,3 @@ window.WORDS = [
   "full": false
  }
 ];
-window.SHEET_MARKS = {};
