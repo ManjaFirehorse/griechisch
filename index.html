@@ -23,8 +23,19 @@
   </nav>
 </header>
 <main id="app"></main>
-<script src="config.js"></script>
-<script src="words.js"></script>
-<script src="app.js"></script>
+<script>
+  // Load the scripts fresh each visit, so a weekly update shows at once (GitHub Pages caches for 10 minutes).
+  (function () {
+    var v = Date.now(), files = ["config.js", "words.js", "app.js"];
+    (function next() {
+      var f = files.shift();
+      if (!f) return;
+      var s = document.createElement("script");
+      s.src = f + "?v=" + v;
+      s.onload = next;
+      document.body.appendChild(s);
+    })();
+  })();
+</script>
 </body>
 </html>
