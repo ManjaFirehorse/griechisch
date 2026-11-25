@@ -1,0 +1,53 @@
+{
+  "id": "kalimera",
+  "greek": "καλημέρα",
+  "article": "η",
+  "full": true,
+  "pos": "Ausdruck",
+  "german": "Guten Morgen",
+  "gender_note": "Achtung: im Deutschen „der Morgen“.",
+  "parts": [
+    {
+      "id": "kalos",
+      "note": "hier: καλή"
+    },
+    {
+      "id": "mera"
+    }
+  ],
+  "synonyms": [
+    {
+      "id": "geia-sou"
+    },
+    {
+      "id": "chairete"
+    },
+    {
+      "id": "kalispera"
+    }
+  ],
+  "sentences": [
+    {
+      "el": "**Καλημέρα!** Τι κάνεις;",
+      "de": "**Guten Morgen!** Wie geht's dir?"
+    },
+    {
+      "el": "Λέω **καλημέρα** στη γειτόνισσα.",
+      "de": "Ich sage der Nachbarin **guten Morgen**."
+    },
+    {
+      "el": "**Καλημέρα** σε όλους!",
+      "de": "**Guten Morgen** an alle!"
+    }
+  ],
+  "memory_tip": {
+    "kind": "gleiche Wurzel",
+    "text": "καλός steckt im **Kaleidoskop**: kalós (schön) + eidos (Bild) + skopein (schauen). Ein „Schönbild-Gucker“."
+  },
+  "source": "sie",
+  "added": "2026-10-26",
+  "sheet_inputs": [
+    "καλημέρα"
+  ],
+  "emoji": "🌅"
+}

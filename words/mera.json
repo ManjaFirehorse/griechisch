@@ -1,0 +1,43 @@
+{
+  "id": "mera",
+  "greek": "μέρα",
+  "article": "η",
+  "full": true,
+  "pos": "Nomen",
+  "german": "der Tag",
+  "gender_note": "Achtung: im Deutschen „der Tag“.",
+  "parts": [],
+  "synonyms": [
+    {
+      "id": "imera"
+    },
+    {
+      "id": "proi"
+    },
+    {
+      "id": "nychta",
+      "note": "Gegenteil"
+    }
+  ],
+  "sentences": [
+    {
+      "el": "Τι **μέρα** είναι σήμερα;",
+      "de": "Welcher **Tag** ist heute?"
+    },
+    {
+      "el": "Δουλεύω όλη τη **μέρα**.",
+      "de": "Ich arbeite den ganzen **Tag**."
+    },
+    {
+      "el": "Η **μέρα** είναι ζεστή.",
+      "de": "Der **Tag** ist warm."
+    }
+  ],
+  "memory_tip": {
+    "kind": "gleiche Wurzel",
+    "text": "**ephemer** (kurzlebig) kommt von epi + hēmera: „nur für einen Tag“. Da steckt (η)μέρα drin."
+  },
+  "source": "verwandt",
+  "added": "2026-10-26",
+  "emoji": "☀️"
+}

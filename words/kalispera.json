@@ -1,0 +1,50 @@
+{
+  "id": "kalispera",
+  "greek": "καλησπέρα",
+  "article": "η",
+  "full": true,
+  "pos": "Ausdruck",
+  "german": "Guten Abend",
+  "gender_note": "Achtung: im Deutschen „der Abend“.",
+  "parts": [
+    {
+      "id": "kalos",
+      "note": "hier: καλή"
+    },
+    {
+      "id": "espera"
+    }
+  ],
+  "synonyms": [
+    {
+      "id": "kalinychta"
+    },
+    {
+      "id": "kalimera"
+    },
+    {
+      "id": "vrady"
+    }
+  ],
+  "sentences": [
+    {
+      "el": "**Καλησπέρα!** Τι κάνετε;",
+      "de": "**Guten Abend!** Wie geht es Ihnen?"
+    },
+    {
+      "el": "**Καλησπέρα** σε όλους!",
+      "de": "**Guten Abend** an alle!"
+    },
+    {
+      "el": "Το απόγευμα λέμε ήδη **καλησπέρα**.",
+      "de": "Am Nachmittag sagt man schon **guten Abend**."
+    }
+  ],
+  "memory_tip": {
+    "kind": "gleiche Wurzel",
+    "text": "εσπέρα ist der Abend, und der Westen, wo die Sonne untergeht. Daher die **Hesperiden**, die „Töchter des Abends“ aus der Sage."
+  },
+  "source": "verwandt",
+  "added": "2026-10-26",
+  "emoji": "🌇"
+}

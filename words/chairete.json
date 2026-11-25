@@ -1,0 +1,37 @@
+{
+  "id": "chairete",
+  "greek": "χαίρετε",
+  "article": "",
+  "full": true,
+  "pos": "Ausdruck",
+  "german": "Guten Tag (höflich, auch zum Abschied)",
+  "parts": [],
+  "synonyms": [
+    {
+      "id": "geia-sas"
+    },
+    {
+      "id": "kalimera"
+    },
+    {
+      "id": "geia-sou"
+    }
+  ],
+  "sentences": [
+    {
+      "el": "**Χαίρετε**, κύριε Παπαδόπουλε.",
+      "de": "**Guten Tag**, Herr Papadopoulos."
+    },
+    {
+      "el": "**Χαίρετε!** Μπορώ να σας βοηθήσω;",
+      "de": "**Guten Tag!** Kann ich Ihnen helfen?"
+    },
+    {
+      "el": "Ο γιατρός λέει «**χαίρετε**».",
+      "de": "Der Arzt sagt „**guten Tag**“."
+    }
+  ],
+  "source": "verwandt",
+  "added": "2026-10-26",
+  "emoji": "🤝"
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meine griechischen Wörter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@400;600;700&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#/" id="brand">Meine griechischen Wörter</a>
+  <div class="search">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+    <input id="search" type="search" placeholder="Wort suchen: Griechisch oder Deutsch" autocomplete="off" aria-label="Wort suchen">
+    <div id="search-results" class="search-results" hidden></div>
+  </div>
+  <nav class="nav">
+    <a href="#/" data-nav="start">Start</a>
+    <a href="#/woerter" data-nav="woerter">Wörter</a>
+    <a href="#/karten" data-nav="karten">Karteikarten</a>
+  </nav>
+</header>
+<main id="app"></main>
+<script src="config.js"></script>
+<script src="words.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

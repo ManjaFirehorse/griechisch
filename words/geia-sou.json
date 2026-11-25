@@ -1,0 +1,49 @@
+{
+  "id": "geia-sou",
+  "greek": "γεια σου",
+  "article": "",
+  "full": true,
+  "pos": "Ausdruck",
+  "german": "Hallo, Tschüss (zu einer Person, locker)",
+  "parts": [
+    {
+      "id": "geia"
+    },
+    {
+      "id": "sou"
+    }
+  ],
+  "synonyms": [
+    {
+      "id": "geia-sas"
+    },
+    {
+      "id": "chairete"
+    },
+    {
+      "id": "antio",
+      "note": "nur zum Abschied"
+    }
+  ],
+  "sentences": [
+    {
+      "el": "**Γεια σου**, Νίκο!",
+      "de": "**Hallo**, Nikos!"
+    },
+    {
+      "el": "**Γεια σου**, τα λέμε αύριο.",
+      "de": "**Tschüss**, bis morgen."
+    },
+    {
+      "el": "Λέω **γεια σου** στη φίλη μου.",
+      "de": "Ich sage meiner Freundin **hallo**."
+    }
+  ],
+  "memory_tip": {
+    "kind": "gleiche Wurzel",
+    "text": "γεια kommt von υγεία = Gesundheit, wie in **Hygiene**. Man wünscht sich also eigentlich „Gesundheit dir!“"
+  },
+  "source": "verwandt",
+  "added": "2026-10-26",
+  "emoji": "👋"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "kalos",
+  "greek": "καλός",
+  "article": "",
+  "full": true,
+  "pos": "Adjektiv",
+  "german": "gut, schön (καλός, καλή, καλό)",
+  "parts": [],
+  "synonyms": [
+    {
+      "id": "oraios"
+    },
+    {
+      "id": "omorfos"
+    },
+    {
+      "id": "kakos",
+      "note": "Gegenteil"
+    }
+  ],
+  "sentences": [
+    {
+      "el": "Είναι ένας **καλός** φίλος.",
+      "de": "Er ist ein **guter** Freund."
+    },
+    {
+      "el": "Το φαγητό είναι πολύ **καλό**.",
+      "de": "Das Essen ist sehr **gut**."
+    },
+    {
+      "el": "**Καλή** σου μέρα!",
+      "de": "Einen **schönen** Tag dir!"
+    }
+  ],
+  "memory_tip": {
+    "kind": "gleiche Wurzel",
+    "text": "**Kalligraphie** heißt „schön schreiben“: kalli- ist dieselbe Wurzel wie καλός."
+  },
+  "source": "verwandt",
+  "added": "2026-10-26",
+  "emoji": "👍"
+}
