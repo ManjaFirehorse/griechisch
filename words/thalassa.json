@@ -1,0 +1,42 @@
+{
+  "id": "thalassa",
+  "greek": "θάλασσα",
+  "article": "η",
+  "full": true,
+  "pos": "Nomen",
+  "german": "das Meer",
+  "gender_note": "Achtung: im Deutschen „das Meer“.",
+  "parts": [],
+  "synonyms": [
+    {
+      "id": "pelagos"
+    },
+    {
+      "id": "okeanos"
+    },
+    {
+      "id": "paralia"
+    }
+  ],
+  "sentences": [
+    {
+      "el": "Πάμε στη **θάλασσα**;",
+      "de": "Gehen wir ans **Meer**?"
+    },
+    {
+      "el": "Η **θάλασσα** είναι ζεστή σήμερα.",
+      "de": "Das **Meer** ist heute warm."
+    },
+    {
+      "el": "Κολυμπάω στη **θάλασσα**.",
+      "de": "Ich schwimme im **Meer**."
+    }
+  ],
+  "memory_tip": {
+    "kind": "gleiche Wurzel",
+    "text": "Die **Thalasso-Therapie** im Wellness-Hotel ist eine Kur mit Meerwasser: thalassa = Meer."
+  },
+  "source": "sie",
+  "added": "2026-11-25",
+  "emoji": "🌊"
+}

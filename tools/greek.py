@@ -45,7 +45,7 @@ POS = {"Nomen", "Verb", "Adjektiv", "Adverb", "Ausdruck", "Pronomen", "Präposit
 SOURCES = {"sie", "verwandt"}
 TIP_KINDS = {"gleiche Wurzel", "klingt wie", "falscher Freund", "Eselsbrücke"}
 IMAGE_EXT = (".jpg", ".png", ".webp", ".gif", ".svg")
-UA = {"User-Agent": "GreekWordBook/1.0 (personal learning tool; Python urllib)"}
+UA = {"User-Agent": "GreekWordBook/1.0 (personal learning tool; https://github.com/ManjaFirehorse/griechisch) Python-urllib"}
 BROWSER_UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
 
 sys.stdout.reconfigure(encoding="utf-8")

@@ -1,0 +1,38 @@
+{
+  "id": "okeanos",
+  "greek": "ωκεανός",
+  "article": "ο",
+  "full": true,
+  "pos": "Nomen",
+  "german": "der Ozean",
+  "parts": [],
+  "synonyms": [
+    {
+      "id": "thalassa"
+    },
+    {
+      "id": "pelagos"
+    },
+    {
+      "id": "limni",
+      "note": "viel kleiner"
+    }
+  ],
+  "sentences": [
+    {
+      "el": "Ο Ατλαντικός **Ωκεανός** είναι μεγάλος.",
+      "de": "Der Atlantische **Ozean** ist groß."
+    },
+    {
+      "el": "Θέλω να δω τον **ωκεανό**.",
+      "de": "Ich will den **Ozean** sehen."
+    },
+    {
+      "el": "Ο **ωκεανός** είναι πολύ βαθύς.",
+      "de": "Der **Ozean** ist sehr tief."
+    }
+  ],
+  "source": "verwandt",
+  "added": "2026-11-25",
+  "emoji": "🌍"
+}

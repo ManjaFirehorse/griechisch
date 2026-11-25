@@ -1,0 +1,42 @@
+{
+  "id": "pelagos",
+  "greek": "πέλαγος",
+  "article": "το",
+  "full": true,
+  "pos": "Nomen",
+  "german": "die offene See, das offene Meer",
+  "parts": [],
+  "synonyms": [
+    {
+      "id": "thalassa"
+    },
+    {
+      "id": "okeanos"
+    },
+    {
+      "id": "steria",
+      "note": "Gegenteil"
+    }
+  ],
+  "sentences": [
+    {
+      "el": "Το πλοίο είναι στο ανοιχτό **πέλαγος**.",
+      "de": "Das Schiff ist auf **offener See**."
+    },
+    {
+      "el": "Το Αιγαίο **Πέλαγος** είναι όμορφο.",
+      "de": "Das Ägäische **Meer** ist schön."
+    },
+    {
+      "el": "Βλέπω μόνο **πέλαγος**.",
+      "de": "Ich sehe nur **offenes Meer**."
+    }
+  ],
+  "memory_tip": {
+    "kind": "gleiche Wurzel",
+    "text": "**Archipel** kommt von archi (Haupt-) + pelagos: das „Hauptmeer“, ursprünglich die Ägäis mit ihren vielen Inseln."
+  },
+  "source": "verwandt",
+  "added": "2026-11-25",
+  "emoji": "⛵"
+}

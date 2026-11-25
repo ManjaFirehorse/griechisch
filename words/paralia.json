@@ -1,0 +1,38 @@
+{
+  "id": "paralia",
+  "greek": "παραλία",
+  "article": "η",
+  "full": true,
+  "pos": "Nomen",
+  "german": "der Strand",
+  "gender_note": "Achtung: im Deutschen „der Strand“.",
+  "parts": [],
+  "synonyms": [
+    {
+      "id": "akti"
+    },
+    {
+      "id": "ammos"
+    },
+    {
+      "id": "thalassa"
+    }
+  ],
+  "sentences": [
+    {
+      "el": "Πάμε στην **παραλία**!",
+      "de": "Gehen wir an den **Strand**!"
+    },
+    {
+      "el": "Η **παραλία** έχει πολύ κόσμο.",
+      "de": "Am **Strand** sind viele Leute."
+    },
+    {
+      "el": "Τρώμε στην **παραλία**.",
+      "de": "Wir essen am **Strand**."
+    }
+  ],
+  "source": "verwandt",
+  "added": "2026-11-25",
+  "emoji": "🏖️"
+}
